@@ -11,7 +11,7 @@ export default function Layout({ children }) {
           <div className="flex justify-between h-16">
             <div className="flex">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                Godown Tree View
+                Godown
               </Link>
             </div>
             <div className="flex items-center">

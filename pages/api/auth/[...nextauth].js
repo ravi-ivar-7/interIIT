@@ -1,9 +1,9 @@
 import NextAuth from 'next-auth'
-import Providers from 'next-auth/providers'
+import CredentialsProvider from 'next-auth/providers/credentials'
 
 export default NextAuth({
   providers: [
-    Providers.Credentials({
+    CredentialsProvider({
       name: 'Credentials',
       credentials: {
         username: { label: "Username", type: "text", placeholder: "jsmith" },
@@ -21,5 +21,20 @@ export default NextAuth({
   ],
   pages: {
     signIn: '/login',
+  },
+  session: {
+    strategy: 'jwt',
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id
+      }
+      return token
+    },
+    async session({ session, token }) {
+      session.user.id = token.id
+      return session
+    },
   },
 })

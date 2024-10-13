@@ -5,6 +5,10 @@
 - npm (or yarn, though the setup is for npm)
 - Docker (if using Docker for deployment)
 
+## Preparing database:
+- To add required data to our database, run scripts/seed-database.js using `npm run seed`.
+
+
 ## Local Setup
 
 1. **Clone the repository**:
