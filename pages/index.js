@@ -10,10 +10,14 @@ export default function Home() {
 
   const handleSelect = async (node) => {
     if (!node.children) {
+      console.log('Fetching items for godown:', node.id)
       const response = await fetch(`/api/items?godown_id=${node.id}`)
+      console.log(response, 'response')
       const items = await response.json()
       if (items.length > 0) {
-        setSelectedItem(items[0])
+        setSelectedItem(items[0])  
+      } else {
+        setSelectedItem(null) 
       }
     }
   }

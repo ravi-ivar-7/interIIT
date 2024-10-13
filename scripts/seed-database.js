@@ -13,7 +13,6 @@ async function seedDatabase() {
 
     const db = client.db('godown');
 
-    // Read and parse JSON files
     const godownsData = JSON.parse(await fs.readFile(path.join(process.cwd(), 'data', 'godowns.json'), 'utf-8'));
     const itemsData = JSON.parse(await fs.readFile(path.join(process.cwd(), 'data', 'items.json'), 'utf-8'));
 
