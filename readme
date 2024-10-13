@@ -1,0 +1,36 @@
+
+## Prerequisites
+
+- Node.js v16+ (or higher)
+- npm (or yarn, though the setup is for npm)
+- Docker (if using Docker for deployment)
+
+## Local Setup
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-repo/nextjs-warehouse.git
+   cd nextjs-warehouse
+   ```
+
+2. Install dependencies:
+```
+npm install 
+```
+
+3. Run the development server:
+```
+npm run dev
+```
+
+## Docker Setup
+
+1. Build docker image:
+```
+docker build -t warehouse .
+```
+
+2. Run server
+```
+docker run -p 3000:3000 warehouse
+```
