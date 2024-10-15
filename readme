@@ -1,13 +1,14 @@
-
 ## Prerequisites
 
 - Node.js v16+ (or higher)
 - npm (or yarn, though the setup is for npm)
 - Docker (if using Docker for deployment)
 
+## Adding environment variables:
+- Make a .env file and fill the key value pair of .env.example file
+
 ## Preparing database:
 - To add required data to our database, run scripts/seed-database.js using `npm run seed`.
-
 
 ## Local Setup
 
