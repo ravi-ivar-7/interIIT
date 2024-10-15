@@ -9,7 +9,8 @@ export default function Home() {
   const [selectedItem, setSelectedItem] = useState(null)
 
   const handleSelect = async (node) => {
-    if (!node.children) {
+    console.log(node, 'node, indexjs')
+    if (node.children.length === 0) {
       console.log('Fetching items for godown:', node.id)
       const response = await fetch(`/api/items?godown_id=${node.id}`)
       console.log(response, 'response')

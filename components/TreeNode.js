@@ -14,6 +14,7 @@ function TreeNode({ node, onSelect }) {
           if (hasChildren) {
             setIsOpen(!isOpen)
           } else {
+            console.log('Fetching items for godown:', node)
             onSelect(node)
           }
         }}
