@@ -5,19 +5,24 @@ import { useRouter } from 'next/router'
 export default function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('') 
   const router = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setMessage('') 
+
     const result = await signIn('credentials', {
       redirect: false,
       username,
       password,
     })
-    if (result.ok) {
+
+    if (result?.ok) {
+      setMessage('Login successful! Redirecting...')
       router.push('/')
     } else {
-      // Handle error
+      setMessage('Login failed. Please check your username and password.') 
       console.error('Login failed')
     }
   }
@@ -27,6 +32,11 @@ export default function Login() {
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+          {message && ( 
+            <div className={`mt-4 text-center text-sm ${message.includes('failed') ? 'text-red-600' : 'text-green-600'}`}>
+              {message}
+            </div>
+          )}
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" value="true" />

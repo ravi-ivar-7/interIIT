@@ -22,10 +22,10 @@ function TreeNode({ node, onSelect }) {
         {hasChildren && (
           isOpen ? <ChevronDownIcon className="h-5 w-5 text-blue-600" /> : <ChevronRightIcon className="h-5 w-5 text-blue-600" />
         )}
-        <span className="ml-3 text-lg font-medium text-gray-800">{node.name}</span>
+        <span className="ml-3  text-lg font-medium text-gray-800">{node.name}</span>
       </div>
       {isOpen && hasChildren && (
-        <div className="ml-6">
+        <div className="ml-6 p-3">
           {node.children.map((child) => (
             <TreeNode key={child.id} node={child} onSelect={onSelect} />
           ))}
